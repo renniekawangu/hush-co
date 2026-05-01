@@ -9,11 +9,25 @@ require('dotenv').config();
 
 const app = express();
 
+// Trust proxy for secure cookies behind Render or other proxies
+app.set('trust proxy', 1);
+
 // CORS configuration
-/*app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+const allowedOrigins = (process.env.CORS_ORIGINS || process.env.CORS_ORIGIN || 'http://localhost:3000')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS origin denied: ${origin}`));
+    }
+  },
   credentials: true
-}));*/
+}));
 
 // Middleware
 app.use(express.json());
@@ -32,10 +46,10 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { 
+  cookie: {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    sameSite: 'lax'
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
   }
 }));
 
