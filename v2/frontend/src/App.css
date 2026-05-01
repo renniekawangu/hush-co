@@ -7,15 +7,19 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: #f5e6b8;
+  background-color: #050505;
 }
 
 a {
-  color: #007bff;
+  color: #d4b36f;
   text-decoration: none;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #f1d384;
+}
+
+::selection {
+  background: rgba(212, 179, 111, 0.35);
 }

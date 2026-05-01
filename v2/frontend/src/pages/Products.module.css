@@ -7,7 +7,7 @@
 .container h2 {
   margin-top: 0;
   margin-bottom: 2rem;
-  color: #333;
+  color: #f5e6b8;
 }
 
 .grid {
@@ -17,26 +17,26 @@
 }
 
 .card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background: #111;
+  border: 1px solid rgba(212, 179, 111, 0.18);
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(212, 179, 111, 0.2);
 }
 
 .card h3 {
   margin: 0 0 1rem 0;
-  color: #333;
+  color: #f5e6b8;
 }
 
 .card p {
-  color: #666;
+  color: #d9c792;
   margin: 0.5rem 0;
   font-size: 0.95rem;
 }
@@ -44,22 +44,22 @@
 .price {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #007bff;
+  color: #d4b36f;
   margin: 1rem 0 !important;
 }
 
 .stock {
   font-weight: 600;
-  color: #28a745;
+  color: #a9c18e;
 }
 
 .rating {
-  color: #ffc107;
+  color: #d4b36f;
 }
 
 .btn {
-  background-color: #007bff;
-  color: white;
+  background-color: #d4b36f;
+  color: #050505;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -70,13 +70,13 @@
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #b89f5e;
 }
 
 .error {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
+  background-color: #3b1a1a;
+  border: 1px solid #8b5e3c;
+  color: #f5d2b2;
   padding: 1rem;
   border-radius: 4px;
   margin: 2rem;

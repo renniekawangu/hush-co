@@ -6,7 +6,7 @@ const Header = ({ user, onLogout }) => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <h1>Hush & Co</h1>
+          <img src="/logo.png" alt="Hush & Co" className={styles.logoImg} />
         </div>
         <nav className={styles.nav}>
           <a href="/">Home</a>

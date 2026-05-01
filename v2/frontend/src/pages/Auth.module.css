@@ -5,21 +5,21 @@
 }
 
 .form {
-  background: white;
+  background: #111;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(212, 179, 111, 0.15);
 }
 
 .form h2 {
   margin-top: 0;
-  color: #333;
+  color: #f5e6b8;
 }
 
 .error {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
+  background-color: #3b1a1a;
+  border: 1px solid #8b5e3c;
+  color: #f5d2b2;
   padding: 1rem;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -50,13 +50,13 @@
 .formGroup textarea:focus,
 .formGroup select:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #d4b36f;
+  box-shadow: 0 0 8px rgba(212, 179, 111, 0.4);
 }
 
 .btn {
-  background-color: #007bff;
-  color: white;
+  background-color: #d4b36f;
+  color: #050505;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -67,7 +67,7 @@
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #b89f5e;
 }
 
 .form p {
@@ -76,7 +76,7 @@
 }
 
 .form a {
-  color: #007bff;
+  color: #d4b36f;
   text-decoration: none;
 }
 
