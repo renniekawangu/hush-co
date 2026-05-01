@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Hush & Co' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <% if (typeof additionalCSS !== 'undefined' && additionalCSS) { %>
+    <link rel="stylesheet" href="<%= additionalCSS %>">
+  <% } %>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <h1>Hush & Co</h1>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <% if (user) { %>
+            <li><a href="/profile">Profile</a></li>
+            <% if (user.role === 'admin') { %>
+              <li><a href="/admin">Admin</a></li>
+            <% } %>
+            <li><a href="/auth/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/signup">Signup</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
