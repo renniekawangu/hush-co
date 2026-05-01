@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import About from './pages/About';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Products from './pages/Products';
@@ -55,6 +56,7 @@ function App() {
         <Header user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home user={user} />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/signup" element={<Signup onLogin={handleLogin} />} />
           <Route path="/products" element={<Products />} />

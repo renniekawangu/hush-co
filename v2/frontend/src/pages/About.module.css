@@ -1,0 +1,83 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero {
+  padding: 2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(212, 179, 111, 0.18), rgba(9, 9, 9, 0.95));
+  border: 1px solid rgba(212, 179, 111, 0.2);
+}
+
+.pill {
+  display: inline-flex;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(212, 179, 111, 0.2);
+  color: #f5e6b8;
+  font-size: 0.85rem;
+}
+
+.hero h2 {
+  margin: 0.75rem 0;
+}
+
+.hero p {
+  color: #d9c792;
+  max-width: 760px;
+}
+
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #111;
+  border: 1px solid rgba(212, 179, 111, 0.18);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.card p {
+  color: #d9c792;
+  margin-top: 0.75rem;
+}
+
+.cta {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background: #0b0b0b;
+  border: 1px solid rgba(212, 179, 111, 0.18);
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.actions a {
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.actions a:first-child {
+  background: #d4b36f;
+  color: #050505;
+}
+
+.actions a:last-child {
+  border: 1px solid #d4b36f;
+  color: #f5e6b8;
+}

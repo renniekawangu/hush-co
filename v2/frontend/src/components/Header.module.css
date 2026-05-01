@@ -123,8 +123,9 @@
 
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
   }
 
   .nav {
@@ -133,7 +134,10 @@
 
   .menuButton {
     display: block;
-    align-self: flex-end;
+  }
+
+  .logo {
+    margin-right: auto;
   }
 
   .mobileMenu {

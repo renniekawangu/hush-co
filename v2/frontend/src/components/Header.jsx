@@ -15,6 +15,7 @@ const Header = ({ user, onLogout }) => {
         </div>
         <nav className={styles.nav}>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
           <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
           <Link to="/cart" onClick={() => setMenuOpen(false)}>Cart</Link>
           <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
@@ -44,6 +45,7 @@ const Header = ({ user, onLogout }) => {
       {menuOpen && (
         <div className={styles.mobileMenu}>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
           <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
           <Link to="/cart" onClick={() => setMenuOpen(false)}>Cart</Link>
           <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
