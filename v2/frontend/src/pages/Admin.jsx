@@ -129,6 +129,11 @@ const Admin = () => {
           <span className={styles.sectionHint}>All fields are required.</span>
         </div>
         <form className={styles.form} onSubmit={handleProductSubmit}>
+          {productForm.image && (
+            <div className={styles.imagePreview}>
+              <img src={productForm.image} alt="Product preview" />
+            </div>
+          )}
           <input placeholder="Name" value={productForm.name} onChange={handleProductChange('name')} required />
           <input placeholder="Description" value={productForm.description} onChange={handleProductChange('description')} required />
           <input type="number" min="0" step="0.01" placeholder="Price" value={productForm.price} onChange={handleProductChange('price')} required />
@@ -151,9 +156,16 @@ const Admin = () => {
         <div className={styles.table}>
           {products.map((product) => (
             <div key={product._id} className={styles.row}>
-              <div>
-                <strong>{product.name}</strong>
-                <div className={styles.subtext}>{product.category} · ${product.price}</div>
+              <div className={styles.productInfo}>
+                <img
+                  src={product.image || 'https://via.placeholder.com/80?text=No+Image'}
+                  alt={product.name}
+                  className={styles.thumbnail}
+                />
+                <div>
+                  <strong>{product.name}</strong>
+                  <div className={styles.subtext}>{product.category} · ${product.price} · Stock: {product.stock}</div>
+                </div>
               </div>
               <div className={styles.rowActions}>
                 <button onClick={() => startEdit(product)} className={styles.secondary}>Edit</button>

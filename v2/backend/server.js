@@ -47,9 +47,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.SESSION_COOKIE_SECURE === 'true' || process.env.NODE_ENV === 'production',
     httpOnly: true,
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+    sameSite: process.env.SESSION_COOKIE_SAMESITE || (process.env.NODE_ENV === 'production' ? 'none' : 'lax')
   }
 }));
 
