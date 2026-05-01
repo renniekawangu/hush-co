@@ -17,7 +17,7 @@ export const authAPI = {
 
 // Products
 export const productsAPI = {
-  getAll: () => api.get('/products'),
+  getAll: (params) => api.get('/products', { params }),
   getById: (id) => api.get(`/products/${id}`),
   create: (data) => api.post('/products', data),
   update: (id, data) => api.put(`/products/${id}`, data),

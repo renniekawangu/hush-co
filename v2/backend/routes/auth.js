@@ -1,10 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const { body } = require('express-validator');
 const User = require('../models/User');
 const { authMiddleware } = require('../middleware/auth');
+const { validateRequest } = require('../middleware/validate');
 
 // Register
-router.post('/register', async (req, res) => {
+router.post(
+  '/register',
+  [
+    body('username').trim().notEmpty().withMessage('Username is required').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
+    body('email').trim().isEmail().withMessage('Valid email is required'),
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
+  ],
+  validateRequest,
+  async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
@@ -22,10 +32,18 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
+  }
+);
 
 // Login
-router.post('/login', async (req, res) => {
+router.post(
+  '/login',
+  [
+    body('email').trim().isEmail().withMessage('Valid email is required'),
+    body('password').notEmpty().withMessage('Password is required')
+  ],
+  validateRequest,
+  async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -40,7 +58,8 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
+  }
+);
 
 // Logout
 router.post('/logout', (req, res) => {

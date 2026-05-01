@@ -1,0 +1,32 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(212, 179, 111, 0.18), rgba(9, 9, 9, 0.95));
+  border-radius: 16px;
+  border: 1px solid rgba(212, 179, 111, 0.2);
+  margin-top: 3rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.actions a {
+  background: #d4b36f;
+  color: #050505;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.actions a:last-child {
+  background: transparent;
+  color: #f5e6b8;
+  border: 1px solid #d4b36f;
+}

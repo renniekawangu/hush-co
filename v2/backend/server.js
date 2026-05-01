@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
 const seedDatabase = require('./seeds');
 require('dotenv').config();
 
@@ -16,6 +18,15 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+app.use('/api', apiLimiter);
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
@@ -34,6 +45,9 @@ async function connectDB() {
     const mongoUri = process.env.MONGODB_URI;
     if (!mongoUri) {
       throw new Error('MONGODB_URI not found in environment variables');
+    }
+    if (!/^mongodb(\+srv)?:\/\//.test(mongoUri)) {
+      throw new Error('MONGODB_URI must start with "mongodb://" or "mongodb+srv://"');
     }
     console.log('📦 Connecting to MongoDB Atlas');
 

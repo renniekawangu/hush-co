@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const User = require('./models/User');
 const Product = require('./models/Product');
 const Message = require('./models/Message');
@@ -6,14 +7,29 @@ async function seedDatabase() {
   try {
     const userCount = await User.countDocuments();
     if (userCount > 0) {
-      console.log('✅ Database already seeded');
+      const users = await User.find({}, { password: 1 });
+      const usersToFix = users.filter(
+        (user) => !/^\$2[aby]\$/.test(user.password || '')
+      );
+
+      if (usersToFix.length === 0) {
+        console.log('✅ Database already seeded');
+        return;
+      }
+
+      console.log('🔧 Found users with unhashed passwords. Fixing...');
+      for (const user of usersToFix) {
+        const hashedPassword = await bcrypt.hash(user.password, 10);
+        await User.updateOne({ _id: user._id }, { password: hashedPassword });
+      }
+      console.log('✅ Updated users with hashed passwords');
       return;
     }
 
     console.log('📦 Seeding database with mock data...');
 
     // Create mock users
-    const users = await User.insertMany([
+    const users = await User.create([
       {
         username: 'johndoe',
         email: 'john@example.com',

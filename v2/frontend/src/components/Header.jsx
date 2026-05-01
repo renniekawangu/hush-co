@@ -1,31 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header = ({ user, onLogout }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <img src="/logo.png" alt="Hush & Co" className={styles.logoImg} />
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <img src="/logo.png" alt="Hush & Co" className={styles.logoImg} />
+          </Link>
         </div>
         <nav className={styles.nav}>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/contact">Contact</a>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+          <Link to="/cart" onClick={() => setMenuOpen(false)}>Cart</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
           {user ? (
             <>
-              <a href="/profile">Profile</a>
-              {user.role === 'admin' && <a href="/admin">Admin</a>}
+              <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+              {user.role === 'admin' && <Link to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>}
               <button onClick={onLogout}>Logout</button>
             </>
           ) : (
             <>
-              <a href="/login">Login</a>
-              <a href="/signup">Sign Up</a>
+              <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+              <Link to="/signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
             </>
           )}
         </nav>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation"
+        >
+          <span className={`${styles.bar} ${menuOpen ? styles.barTopActive : ''}`} />
+          <span className={`${styles.bar} ${menuOpen ? styles.barMiddleActive : ''}`} />
+          <span className={`${styles.bar} ${menuOpen ? styles.barBottomActive : ''}`} />
+        </button>
       </div>
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+          <Link to="/cart" onClick={() => setMenuOpen(false)}>Cart</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          {user ? (
+            <>
+              <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+              {user.role === 'admin' && <Link to="/admin" onClick={() => setMenuOpen(false)}>Admin</Link>}
+              <button onClick={() => { setMenuOpen(false); onLogout(); }}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+              <Link to="/signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+            </>
+          )}
+        </div>
+      )}
     </header>
   );
 };
