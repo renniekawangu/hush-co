@@ -2,17 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
 const seedDatabase = require('./seeds');
 require('dotenv').config();
 
 const app = express();
 
 // CORS configuration
-app.use(cors({
+/*app.use(cors({
   origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
   credentials: true
-}));
+}));*/
 
 // Middleware
 app.use(express.json());
@@ -32,9 +31,11 @@ app.use(session({
 // Database connection
 async function connectDB() {
   try {
-    const mongoServer = await MongoMemoryServer.create();
-    const mongoUri = mongoServer.getUri();
-    console.log('📦 In-memory MongoDB started');
+    const mongoUri = process.env.MONGODB_URI;
+    if (!mongoUri) {
+      throw new Error('MONGODB_URI not found in environment variables');
+    }
+    console.log('📦 Connecting to MongoDB Atlas');
 
     await mongoose.connect(mongoUri, {
       useNewUrlParser: true,

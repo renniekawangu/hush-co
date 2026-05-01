@@ -45,58 +45,64 @@ async function seedDatabase() {
     // Create mock products
     const products = await Product.insertMany([
       {
-        name: 'Wireless Headphones',
-        description: 'Premium noise-canceling wireless headphones',
-        price: 199.99,
-        category: 'Electronics',
-        sku: 'WH-1001',
-        stock: 50,
-        rating: 4.5
+        name: 'Midnight Ember',
+        description: 'A deep, smoky ghost pepper hot sauce with rich undertones of coffee and chipotle.',
+        price: 18.99,
+        category: 'Hot Sauce',
+        sku: 'HS-1001',
+        stock: 120,
+        rating: 4.8,
+        image: 'https://images.unsplash.com/photo-1547097465-1cb7341ab476?auto=format&fit=crop&w=800&q=80'
       },
       {
-        name: 'Smart Watch',
-        description: 'Advanced fitness tracking smartwatch',
-        price: 299.99,
-        category: 'Electronics',
-        sku: 'SW-2001',
-        stock: 35,
-        rating: 4.7
+        name: 'Golden Ghost',
+        description: 'Bright scotch bonnet heat balanced with sweet mango and tropical fruit notes.',
+        price: 21.99,
+        category: 'Hot Sauce',
+        sku: 'HS-1002',
+        stock: 95,
+        rating: 4.9,
+        image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80'
       },
       {
-        name: 'USB-C Cable',
-        description: 'High-speed USB-C charging cable (3 pack)',
-        price: 29.99,
-        category: 'Accessories',
-        sku: 'UC-3001',
-        stock: 200,
-        rating: 4.2
+        name: 'Smoky Inferno',
+        description: 'Intense habanero fire with a smoky finish and hints of roasted garlic.',
+        price: 17.49,
+        category: 'Hot Sauce',
+        sku: 'HS-1003',
+        stock: 80,
+        rating: 4.7,
+        image: 'https://images.unsplash.com/photo-1543353071-087092ec3935?auto=format&fit=crop&w=800&q=80'
       },
       {
-        name: 'Phone Case',
-        description: 'Durable protective phone case',
-        price: 24.99,
-        category: 'Accessories',
-        sku: 'PC-4001',
-        stock: 150,
-        rating: 4.3
-      },
-      {
-        name: 'Screen Protector',
-        description: 'Tempered glass screen protector (2 pack)',
+        name: 'Velvet Cayenne',
+        description: 'A smooth cayenne blend with buttery texture, perfect for everyday heat.',
         price: 14.99,
-        category: 'Accessories',
-        sku: 'SP-5001',
-        stock: 300,
-        rating: 4.1
+        category: 'Hot Sauce',
+        sku: 'HS-1004',
+        stock: 150,
+        rating: 4.5,
+        image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'
       },
       {
-        name: 'Portable Charger',
-        description: '20000mAh power bank with fast charging',
-        price: 49.99,
-        category: 'Electronics',
-        sku: 'PC-6001',
-        stock: 75,
-        rating: 4.6
+        name: 'Blazing Serrano',
+        description: 'Fresh serrano peppers with lime and cilantro for a bright, lively burn.',
+        price: 16.99,
+        category: 'Hot Sauce',
+        sku: 'HS-1005',
+        stock: 110,
+        rating: 4.6,
+        image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        name: 'Fiery Gold Reserve',
+        description: 'Premium black garlic and chili blend for a gourmet hot sauce experience.',
+        price: 24.99,
+        category: 'Hot Sauce',
+        sku: 'HS-1006',
+        stock: 45,
+        rating: 4.9,
+        image: 'https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=800&q=80'
       }
     ]);
 

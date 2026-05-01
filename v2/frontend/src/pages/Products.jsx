@@ -31,6 +31,9 @@ const Products = () => {
       <div className={styles.grid}>
         {products.map((product) => (
           <div key={product._id} className={styles.card}>
+            {product.image && (
+              <img src={product.image} alt={product.name} className={styles.productImage} />
+            )}
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p className={styles.price}>${product.price}</p>
